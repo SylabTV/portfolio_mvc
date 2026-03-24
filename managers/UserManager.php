@@ -1,26 +1,24 @@
 <?php
 
-// On n'oublie pas de charger le parent !
+// 1. On charge le parent et le modèle
 require_once __DIR__ . '/AbstractManager.php';
 require_once __DIR__ . '/../models/User.php';
 
 class UserManager extends AbstractManager 
 {
-    // PLUS BESOIN de private PDO $db;
-    // PLUS BESOIN de __construct() { ... }
-
-    public function findByName(string $name): ?User
+    public function findByUsername(string $username): ?User
     {
-        // On utilise directement $this->db qui vient d'AbstractManager
-        $stmt = $this->db->prepare('SELECT * FROM users WHERE name = :name');
-        $stmt->execute([':name' => $name]);
+        // Correction : on utilise public.users et la colonne username
+        $stmt = $this->db->prepare('SELECT * FROM public.users WHERE username = :username');
+        $stmt->execute([':username' => $username]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$row) return null;
 
+        // On remplit l'objet User avec les bonnes clés de ta base Neon
         return new User(
-            $row['name'],
-            $row['role'],
+            $row['username'], // au lieu de 'name'
+            $row['role'] ?? 'admin',
             $row['password'],
             $row['id']
         );
