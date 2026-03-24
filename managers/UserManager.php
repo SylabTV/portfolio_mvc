@@ -6,18 +6,19 @@ require_once __DIR__ . '/../models/User.php';
 
 class UserManager extends AbstractManager 
 {
-    public function findByUsername(string $username): ?User
+    // On change le nom ici pour que AuthController puisse la trouver
+    public function findByName(string $name): ?User
     {
-        // Correction : on utilise public.users et la colonne username
-        $stmt = $this->db->prepare('SELECT * FROM public.users WHERE username = :username');
-        $stmt->execute([':username' => $username]);
+        // On utilise la colonne "name" (vue sur ta capture Neon)
+        $stmt = $this->db->prepare('SELECT * FROM public.users WHERE name = :name');
+        $stmt->execute([':name' => $name]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$row) return null;
 
-        // On remplit l'objet User avec les bonnes clés de ta base Neon
+        // On crée l'objet User avec les données de ta table
         return new User(
-            $row['username'], // au lieu de 'name'
+            $row['name'],
             $row['role'] ?? 'admin',
             $row['password'],
             $row['id']
