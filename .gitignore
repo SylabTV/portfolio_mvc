@@ -1,7 +1,7 @@
 # --- Base de données & Config Sensible ---
 config.php
 .env
-
+.env2
 # --- Uploads (Médias des projets) ---
 # On ignore TOUS les dossiers d'images pour ne pas polluer GitHub
 img/projects/*
