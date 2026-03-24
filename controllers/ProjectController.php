@@ -102,7 +102,7 @@ class ProjectController
         $mediaName = $project->getMediaUrl();
 
         if (!empty($_FILES['project_file']['name'])) {
-            // Suppression de l'ancienne image dans public/img/projects/
+            // Suppression de l'ancien média (image ou vidéo) dans public/img/projects/
             if ($mediaName) {
                 $oldFile = __DIR__ . '/../public/img/projects/' . $mediaName;
                 if (file_exists($oldFile)) {
@@ -146,7 +146,7 @@ class ProjectController
 
     private function handleUpload(array $file): string
     {
-        // Chemin corrigé vers ton dossier public
+        // Dossier de destination final
         $uploadDir = __DIR__ . '/../public/img/projects/'; 
         
         if (!is_dir($uploadDir)) {
@@ -154,6 +154,14 @@ class ProjectController
         }
 
         $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        
+        // On autorise les images classiques ET les vidéos (mp4, webm)
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'webm', 'mp4'];
+        
+        if (!in_array($extension, $allowedExtensions)) {
+            return ''; 
+        }
+
         $newName = uniqid('project_') . '.' . $extension;
         $targetPath = $uploadDir . $newName;
 

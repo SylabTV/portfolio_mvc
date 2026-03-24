@@ -1,13 +1,15 @@
 # --- Base de données & Config Sensible ---
-# Si tu décides de mettre tes accès dans un fichier à part (recommandé)
 config.php
 .env
 
 # --- Uploads (Médias des projets) ---
-# On évite de push les images de test que tu as sur ton PC
-# Mais on garde le dossier pour la structure
+# On ignore TOUS les dossiers d'images pour ne pas polluer GitHub
 img/projects/*
 !img/projects/.gitkeep
+
+# INDISPENSABLE : Ignorer les images dans le dossier public aussi !
+public/img/projects/*
+!public/img/projects/.gitkeep
 
 # --- OS & IDE ---
 .DS_Store
