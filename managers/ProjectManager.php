@@ -10,21 +10,23 @@ class ProjectManager extends AbstractManager
     // --- PLUS BESOIN de private PDO $db; ---
     // --- PLUS BESOIN de public function __construct() ---
 
-    public function findAll() : array
+    public function findAll(): array
     {
-        // On utilise $this->db qui vient d'AbstractManager
-        $stmt = $this->db->prepare('SELECT * FROM projects ORDER BY created_at DESC');
+        // On force le schéma public pour que PostgreSQL trouve la table sur Render/Neon
+        $stmt = $this->db->prepare('SELECT * FROM public.projects ORDER BY created_at DESC');
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $projects = [];
         foreach ($results as $row) {
+            // On crée l'objet en passant les clés du tableau $row
+            // Ça évite les erreurs si l'ordre des colonnes change dans la base
             $projects[] = new Project(
                 $row['title'],
                 $row['description'],
                 $row['github_url'],
                 $row['live_url'],
-                $row['media_url'] ?? '',
+                $row['media_url'] ?? '', // Le ?? '' évite un crash si media_url est vide
                 $row['id'],
                 $row['created_at']
             );
