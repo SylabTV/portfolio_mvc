@@ -1,17 +1,26 @@
 FROM php:8.2-apache
 
-# On installe le driver PostgreSQL pour que PHP puisse parler à Neon
-RUN apt-get update && apt-get install -y libpq-dev \
+# 1. Installation des outils système nécessaires (Zip et Postgres)
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    unzip \
+    git \
     && docker-php-ext-install pdo pdo_pgsql
 
-# On active le module rewrite d'Apache (utile pour ton router)
-RUN a2enmod rewrite
+# 2. On installe Composer officiellement
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# On copie tout ton code dans le dossier du serveur
-COPY . /var/www/html/
+# 3. On définit le dossier de travail
+WORKDIR /var/www/html
 
-# On s'assure que le serveur peut lire les fichiers
+# 4. On copie TOUT ton projet dans le conteneur
+COPY . .
+
+# 5. ON LANCE L'INSTALLATION (C'est l'étape qui te manque)
+RUN composer install --no-interaction --optimize-autoloader
+
+# 6. On donne les bons droits pour Apache
 RUN chown -R www-data:www-data /var/www/html
 
-# Port par défaut
+# 7. On expose le port (Render utilise 80 par défaut en Apache)
 EXPOSE 80
