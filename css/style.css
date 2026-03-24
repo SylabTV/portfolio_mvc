@@ -1,0 +1,1509 @@
+/* ========================================
+   CS WEB PORTFOLIO — CHROME LUXURY THEME
+   ======================================== */
+
+/* IMPORTS */
+@import url("https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Rajdhani:wght@300;400;500;600&display=swap");
+
+/* RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+/* GRAIN TEXTURE OVERLAY */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 150px;
+}
+
+/* ========================
+   HEADER
+   ======================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -100vw;
+  right: -100vw;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: -1;
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.1);
+  transition: filter 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.logo-link:hover .logo {
+  filter: brightness(1.3);
+}
+
+.menu ul {
+  display: flex;
+  gap: 4px;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu a {
+  display: block;
+  padding: 6px 14px;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  border-radius: 30px;
+  transition:
+    color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: #f0f0f0;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.menu a:hover::after {
+  width: 50%;
+}
+
+.link ul {
+  display: flex;
+  gap: 8px;
+}
+
+.button-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.85rem;
+  transition:
+    color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button-contact:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ========================
+   MAIN WRAPPER
+   ======================== */
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ========================
+   SECTION COMMONS
+   ======================== */
+section {
+  height: calc(100vh - 72px);
+  min-height: 0;
+  padding: 40px 0;
+  scroll-margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.section-tag {
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: "Syncopate", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+/* ========================
+   HERO / PRESENTATION
+   ======================== */
+.presentation {
+  height: calc(100vh - 72px);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+.hero-label {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.2s;
+}
+
+.hero-label .dot {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.presentation h1 {
+  font-family: "Syncopate", sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.4s;
+  text-align: center;
+}
+
+.presentation h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #c8c8c8 0%, #f0f0f0 50%, #acaaaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 40px;
+  align-items: center;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.6s;
+}
+
+.miniabout {
+  padding: 32px;
+}
+
+.miniabout p {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+.miniabout p strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.button-cta {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid #b3b3b3;
+  border-radius: 30px;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  transition:
+    background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button-cta:hover {
+  background: #ffffff;
+  color: #0d0d0d;
+}
+
+.photo-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.photo-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.8;
+  }
+}
+
+.myphoto {
+  width: 500px;
+  height: 600px;
+  object-fit: cover;
+  object-position: top;
+  margin-top: -90px;
+  position: relative;
+  right: -20px;
+  top: -140px;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.minicompetences {
+  padding: 32px;
+  text-align: right;
+}
+
+.minicompetences ul {
+  margin-bottom: 28px;
+}
+
+.minicompetences li {
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.minicompetences li:last-child {
+  border-bottom: none;
+}
+
+.minicompetences li:hover {
+  color: #ffffff;
+}
+
+.button-voirplus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button-voirplus:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: translateX(-4px);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.45rem;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 1.2s;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, #888888, transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(0.8);
+  }
+}
+
+/* ========================
+   PROJETS
+   ======================== */
+.projets {
+  height: auto !important;
+  min-height: 100vh;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 100px;
+  overflow: visible;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.project-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1f1f1f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #e8e8e8 0%,
+    #f5f5f5 20%,
+    #c0c0c0 40%,
+    #e0e0e0 60%,
+    #a8a8a8 80%,
+    #d0d0d0 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+.project-card:hover .project-card-body {
+  position: relative;
+  z-index: 1;
+}
+.project-card:hover .project-card-body h3 {
+  color: #0d0d0d;
+}
+.project-card:hover .project-media-thumb {
+  position: relative;
+  z-index: 1;
+}
+
+.project-media-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.project-media-thumb img,
+.project-media-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card-body {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none; /* Ajoute ça */
+  position: relative;
+  z-index: 1;
+}
+
+.project-card-body h3 {
+  font-family: "Syncopate", sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  pointer-events: auto; /* Ajoute ça */
+  position: relative;
+  z-index: 10; /* Met les au dessus de tout */
+}
+
+/* ========================
+   SECTION À PROPOS
+   ======================== */
+.about {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.about-text p {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #ffffffaaa;
+}
+.about-text p strong {
+  color: #ff0000;
+  font-weight: 600;
+}
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: #141414;
+  transition: background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.stat:hover {
+  background: #1a1a1a;
+}
+.stat-num {
+  font-family: "Syncopate", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #c8c8c8 0%, #ff9191 45%, #ff0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* ========================
+   COMPÉTENCES
+   ======================== */
+.competences {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid rgba(255, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.skill-card {
+  background: #141414;
+  padding: 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 0, 0.04) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.skill-card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(105, 105, 105, 0.658) 0%,
+    transparent 60%
+  );
+}
+.skill-card:hover::before {
+  opacity: 1;
+}
+.skill-icon {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #c8c8c8 0%, #f0f0f0 50%, #acaaaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.skill-card h3 {
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.skill-card p {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* ========================
+   CONTACT
+   ======================== */
+.contact {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+.contact h2 {
+  margin-bottom: 12px;
+}
+.contact-sub {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 32px;
+}
+.contact-form {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background-color: #141414;
+  color: #ffffff;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #ffffff;
+  background: #1a1a1a;
+}
+.contact-form button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1px solid #b3b3b3;
+  border-radius: 30px;
+  background: transparent;
+  color: #ffffff;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+.contact-form button[type="submit"]:hover {
+  background: #ffffff;
+  color: #0d0d0d;
+}
+
+/* ========================
+   FOOTER
+   ======================== */
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-logo {
+  height: 36px;
+  width: auto;
+  opacity: 0.6;
+  filter: grayscale(1);
+  transition: all 0.3s ease;
+}
+.footer-logo:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+.footer-info p {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+.footer-nav {
+  display: flex;
+  gap: 20px;
+}
+.footer-nav a {
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.5rem;
+  color: #ff0000;
+  text-transform: uppercase;
+}
+
+/* ========================
+   ANIMATIONS / MISC
+   ======================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.logo-text {
+  font-family: "Syncopate", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* ========================
+   THEME TOGGLE
+   ======================== */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.theme-toggle-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 110px;
+  height: 32px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px;
+}
+.theme-toggle-thumb {
+  position: absolute;
+  left: 3px;
+  width: 50px;
+  height: 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  transition: transform 0.35s ease;
+  z-index: 1;
+}
+.theme-label {
+  position: absolute;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.42rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.theme-label-dark {
+  left: 13px;
+  color: #0d0d0d;
+}
+.theme-label-light {
+  right: 10px;
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #0d0d0d;
+}
+body.light-mode .theme-toggle-thumb {
+  background: #0d0d0d;
+  transform: translateX(54px);
+}
+body.light-mode .theme-label-dark {
+  color: #ffffff;
+  opacity: 0.5;
+}
+body.light-mode .theme-label-light {
+  color: #0d0d0d;
+  opacity: 1;
+}
+
+/* --- FIX LIGHT MODE HEADER --- */
+body.light-mode header,
+body.light-mode header::before {
+  background: rgba(245, 245, 245, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+body.light-mode .logo-text,
+body.light-mode .menu a,
+body.light-mode .button-contact {
+  color: #0d0d0d;
+}
+body.light-mode .button-contact {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* --- FIX LIGHT MODE CHROME CARDS --- */
+body.light-mode .project-card {
+  background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 50%, #d6d6d6 100%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 white;
+}
+body.light-mode .project-card:hover {
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 1024px) {
+  .myphoto {
+    width: 360px;
+    height: 440px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  .hero-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .myphoto {
+    width: 160px;
+    height: 200px;
+    position: static;
+    margin: 0 auto;
+  }
+}
+
+/* ========================================
+   MEDIA PROJET - DETAIL (FIX TAILLE)
+   ======================================== */
+.project-media-full {
+  width: 100%;
+  max-width: 860px;
+  height: 480px; /* HAUTEUR FIXE */
+  margin: 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.project-media-full img,
+.project-media-full video {
+  width: 100%;
+  height: 100%; /* REMPLIT LE CADRE */
+  object-fit: cover; /* COUPE PROPREMENT SANS DÉFORMER */
+  object-position: center;
+  display: block;
+}
+/* ========================
+   FIX : LIEN GLOBAL CARTE
+   ======================== */
+.project-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 5; /* Se place au-dessus du décor mais sous les boutons d'action */
+  width: 100%;
+  height: 100%;
+}
+
+.project-actions {
+  z-index: 10; /* Garde les petits boutons prioritaires sur le lien global */
+}
+/* FORCE LE CLIC SUR TOUTE LA CARTE */
+.project-card a[style*="position: absolute"] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-indent: -9999px; /* Cache un éventuel texte pour l'accessibilité */
+  overflow: hidden;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /* Force la présence d'une couche cliquable */
+}
+
+/* EMPÊCHE LE LIEN GLOBAL DE BLOQUER LES BOUTONS (GITHUB, MODIFIER, ETC) */
+.project-actions {
+  position: relative;
+  z-index: 10;
+}
+
+.project-actions a {
+  position: relative;
+  z-index: 11;
+}
+/* ========================================
+   FIX FINAL : CLIC SUR TOUTE LA CARTE
+   ======================================== */
+
+.project-card {
+  position: relative;
+  cursor: pointer; /* Indique visuellement que c'est cliquable */
+}
+
+/* Le lien invisible qui couvre TOUT */
+.project-card > a[style*="position: absolute"] {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 50 !important; /* On le met très haut */
+  background: transparent;
+}
+
+/* On s'assure que le contenu ne bloque pas le clic */
+.project-media-thumb,
+.project-card-body {
+  pointer-events: none; /* Laisse passer le clic à travers vers le lien */
+}
+
+/* SAUF les boutons d'actions qui doivent rester cliquables individuellement */
+.project-actions {
+  position: relative;
+  z-index: 100 !important; /* Plus haut que le lien global */
+  pointer-events: auto; /* Réactive le clic pour les icônes */
+}
+
+.project-actions a {
+  position: relative;
+  z-index: 101;
+  pointer-events: auto;
+}
+/* ========================================
+   LOGOTYPE DYNAMIQUE (ADMIN MODE)
+   ======================================== */
+
+.logo-text {
+  font-family: "Syncopate", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: inline-block;
+}
+
+/* --- STYLE SPÉCIFIQUE ADMIN --- */
+.admin-mode {
+  font-size: 2.2rem; /* Plus large comme demandé */
+  font-weight: 700;
+  letter-spacing: 0.25em;
+
+  /* On prépare le dégradé sur le texte */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Animation de brillance */
+  background-size: 200% auto;
+  animation: chromeShine 4s linear infinite;
+
+  /* Correction de l'alignement */
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* --- DÉGRADÉ MODE SOMBRE (ROUGE CHROME HORIZONTAL) --- */
+body:not(.light-mode) .admin-mode {
+  background-image: linear-gradient(
+    to right,
+    #8b0000 0%,
+    /* Rouge sombre */ #ff0000 25%,
+    /* Rouge vif */ #ffffff 50%,
+    /* ECLAT CHROME BLANC */ #ff0000 75%,
+    /* Rouge vif */ #8b0000 100% /* Rouge sombre */
+  );
+  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
+}
+
+/* --- DÉGRADÉ MODE CLAIR (NOIR/GRIS CHROME HORIZONTAL) --- */
+body.light-mode .admin-mode {
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    /* Noir */ #434343 25%,
+    /* Gris foncé */ #f0f0f0 50%,
+    /* ECLAT CHROME GRIS */ #434343 75%,
+    /* Gris foncé */ #000000 100% /* Noir */
+  );
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Animation pour faire voyager le reflet de GAUCHE à DROITE */
+@keyframes chromeShine {
+  0% {
+    background-position: -100% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
+}
+/* ========================
+   MODIFICATIONS MODE CLAIR (CHROME & TEXTES)
+   ======================== */
+
+/* 1. Fond des cartes en dégradé CHROME ARGENTÉ */
+body.light-mode .skill-card,
+body.light-mode .about-stats,
+body.light-mode .stat {
+  background: linear-gradient(
+    145deg,
+    #e6e6e6 0%,
+    #ffffff 50%,
+    #cfcfcf 100%
+  ) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 4px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 2. Textes en NOIR (Lecture parfaite sur Chrome) */
+body.light-mode .skill-card h3,
+body.light-mode .skill-card p,
+body.light-mode .about-text p,
+body.light-mode .about-text p strong,
+body.light-mode .stat-label,
+body.light-mode .miniabout p,
+body.light-mode .miniabout p strong,
+body.light-mode h2,
+body.light-mode .section-tag {
+  color: #0d0d0d !important;
+}
+
+/* 3. PROTECTION STRICTE : NE PAS TOUCHER AUX STATS (3WA, 5+, 100%) */
+body.light-mode .stat-num {
+  background: linear-gradient(
+    135deg,
+    #c8c8c8 0%,
+    #ff9191 45%,
+    #ff0000 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  display: inline-block;
+}
+
+/* 4. PROTECTION STRICTE : NE PAS TOUCHER AU LOGO ADMIN */
+body.light-mode .admin-mode {
+  /* On garde ton dégradé Chrome Noir/Gris déjà défini plus haut */
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* 5. Effet de survol sur les cartes Stack en mode clair — NO RED */
+body.light-mode .skill-card:hover {
+  background: linear-gradient(145deg, #dcdcdc, #f0f0f0) !important;
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.1),
+    0 10px 20px rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-2px);
+}
+
+body.light-mode .skill-card:hover h3,
+body.light-mode .skill-card:hover p {
+  color: #0d0d0d !important; /* On garde le texte noir pour la lisibilité sur fond clair */
+}
+
+/* ========================
+   FIX HERO LIGHT MODE
+   ======================== */
+
+body.light-mode .presentation h1 {
+  color: #0d0d0d !important;
+}
+
+/* On remplace le dégradé blanc du Hero par un dégradé Chrome Sombre */
+body.light-mode .presentation h1 em {
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #434343 50%,
+    #000000 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* On force le noir sur les labels, les points et le scroll indicator */
+body.light-mode .hero-label,
+body.light-mode .hero-label .dot,
+body.light-mode .scroll-indicator {
+  color: #0d0d0d !important;
+}
+
+/* La ligne de scroll passe en dégradé noir vers transparent */
+body.light-mode .scroll-line {
+  background: linear-gradient(to bottom, #0d0d0d, transparent) !important;
+}
+
+/* Bouton CTA dans le hero (Contours noirs) */
+body.light-mode .button-cta {
+  border-color: #0d0d0d !important;
+  color: #0d0d0d !important;
+}
+
+body.light-mode .button-cta:hover {
+  background: #0d0d0d !important;
+  color: #ffffff !important;
+}
+
+/* Ajustement de la bague de la photo en mode clair */
+body.light-mode .photo-ring {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ========================
+   FIX TEXTES & BOUTONS MODE CLAIR
+   ======================== */
+
+/* Fix pour les listes de compétences (CSS, HTML, etc.) dans la présentation et la section compétences */
+body.light-mode .minicompetences li,
+body.light-mode .button-voirplus,
+body.light-mode .contact-sub,
+body.light-mode .contact-form button[type="submit"] {
+  color: #0d0d0d !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Fix spécifique pour le bouton Envoyer (Contact) */
+body.light-mode .contact-form button[type="submit"] {
+  border-color: #0d0d0d !important;
+}
+
+body.light-mode .contact-form button[type="submit"]:hover {
+  background: #0d0d0d !important;
+  color: #ffffff !important;
+}
+
+/* Fix survol bouton Voir plus */
+body.light-mode .button-voirplus:hover {
+  border-color: #0d0d0d !important;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Fix bordure des items de la liste Stack Presentation */
+body.light-mode .minicompetences li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+/* ========================
+   FIX FORMULAIRE MODE CLAIR (CHROME / ARGENT)
+   ======================== */
+
+/* Style des champs (Input & Textarea) */
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+  background: linear-gradient(145deg, #e0e0e0, #ffffff) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #0d0d0d !important;
+  box-shadow:
+    inset 2px 2px 5px rgba(0, 0, 0, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Style du texte d'indice (Placeholder) */
+body.light-mode .contact-form input::placeholder,
+body.light-mode .contact-form textarea::placeholder {
+  color: #777777 !important;
+  font-weight: 400;
+}
+
+/* Focus sur les champs : bordure chrome plus sombre */
+body.light-mode .contact-form input:focus,
+body.light-mode .contact-form textarea:focus {
+  border-color: #0d0d0d !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Le bouton "Envoyer" en chrome inversé au survol */
+body.light-mode .contact-form button[type="submit"] {
+  background: linear-gradient(145deg, #333, #000);
+  color: #fff !important;
+  border: none !important;
+}
+
+body.light-mode .contact-form button[type="submit"]:hover {
+  background: #ff0000 !important; /* Rappel du rouge signature au clic */
+  transform: scale(1.02);
+}
+/* ========================================
+   BOUTON ENVOYER (MODE CLAIR) - MINIMALISTE
+   ======================================== */
+
+body.light-mode .contact-form button[type="submit"] {
+  background-color: #ffffff !important; /* Fond blanc pur */
+  color: #0d0d0d !important; /* Texte noir */
+  border: 1px solid #0d0d0d !important; /* Contour noir fin */
+  background-image: none !important; /* On retire les dégradés */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 600;
+}
+
+/* Effet au survol : Inversion ou Passage au rouge signature */
+body.light-mode .contact-form button[type="submit"]:hover {
+  background-color: #0d0d0d !important; /* Devient noir au survol */
+  color: #ffffff !important; /* Texte passe en blanc */
+  transform: translateY(-2px); /* Petit saut vers le haut */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+/* ========================================
+   FIX FOOTER MODE CLAIR (TEXTE NOIR / LIENS ROUGE)
+   ======================================== */
+
+/* Fond et bordure du footer */
+body.light-mode footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: transparent; /* Reste sur le fond gris clair du body */
+}
+
+/* Texte général (Copyright, Infos) en Noir */
+body.light-mode .footer-info p {
+  color: #0d0d0d !important;
+  opacity: 0.9;
+}
+
+/* --- LE POINT CLÉ : LIENS DU FOOTER EN ROUGE --- */
+body.light-mode .footer-nav a {
+  color: #ff0000 !important; /* On force le rouge ici */
+  font-weight: 600;
+  text-transform: uppercase;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Effet au survol des liens rouges */
+body.light-mode .footer-nav a:hover {
+  opacity: 0.7; /* Légère variation au survol */
+  transform: translateY(-1px);
+}
+
+/* Logo du footer adapté (Noir avec une touche d'opacité) */
+body.light-mode .footer-logo {
+  filter: invert(1) grayscale(1) brightness(0.2);
+  opacity: 0.6;
+}
+/* ========================
+   THEME TOGGLE (ZÉRO MOUVEMENT)
+   ======================== */
+.theme-toggle-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 110px;
+  height: 32px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* La pastille qui glisse */
+.theme-toggle-thumb {
+  position: absolute;
+  left: 3px;
+  width: 50px;
+  height: 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1; /* Sous le texte */
+}
+
+/* Style commun aux étiquettes (Immobiles) */
+.theme-label-dark,
+.theme-label-light {
+  position: absolute;
+  width: 50px;
+  height: 24px;
+  top: 50%;
+  transform: translateY(-50%) !important; /* Centrage vertical uniquement */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Syncopate", sans-serif;
+  font-size: 0.45rem;
+  font-weight: 700;
+  z-index: 2; /* Au-dessus de la pastille */
+  pointer-events: none;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Positions horizontales figées */
+.theme-label-dark {
+  left: 3px;
+}
+
+.theme-label-light {
+  right: 3px;
+}
+
+/* --- ÉTATS DARK MODE (Par défaut) --- */
+body:not(.light-mode) .theme-label-dark {
+  color: #0d0d0d !important; /* Noir car la pastille est dessous */
+  opacity: 1;
+}
+body:not(.light-mode) .theme-label-light {
+  color: #ffffff !important;
+  opacity: 0.4;
+}
+
+/* --- ÉTATS LIGHT MODE --- */
+body.light-mode .theme-toggle-thumb {
+  background: #0d0d0d;
+  transform: translateX(54px); /* La pastille bouge, pas le texte */
+}
+
+body.light-mode .theme-label-dark {
+  color: #0d0d0d !important;
+  opacity: 0.4;
+}
+body.light-mode .theme-label-light {
+  color: #ffffff !important; /* Blanc car la pastille noire est dessous */
+  opacity: 1;
+}
+
+/* Ajustement bordure track mode clair */
+body.light-mode .theme-toggle-track {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
+}
+/* ========================
+   FIX GLOBAL MODE CLAIR (TEXTES & LOGOS NOIRS)
+   ======================== */
+
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #000000 !important; /* Force le noir partout */
+}
+
+/* Force le noir sur tous les éléments de texte */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode p,
+body.light-mode span,
+body.light-mode li,
+body.light-mode a,
+body.light-mode .section-tag,
+body.light-mode .stat-label,
+body.light-mode .hero-label {
+  color: #000000 !important;
+}
+
+/* Inversion des logos et icônes pour le noir */
+body.light-mode .logo,
+body.light-mode .footer-logo {
+  filter: brightness(0) !important; /* Rend le logo totalement noir */
+  opacity: 1 !important;
+}
+
+body.light-mode .skill-icon {
+  background: none !important;
+  -webkit-text-fill-color: #000000 !important; /* Icônes de stack en noir */
+  color: #000000 !important;
+}
+
+/* Ajustement des cartes Stack (Argenté sans rouge) */
+body.light-mode .skill-card {
+  background: linear-gradient(145deg, #e6e6e6, #ffffff) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode .skill-card:hover {
+  background: linear-gradient(145deg, #dcdcdc, #f0f0f0) !important;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Boutons et bordures */
+body.light-mode .button-contact,
+body.light-mode .button-cta,
+body.light-mode .button-voirplus,
+body.light-mode .theme-toggle-track {
+  border-color: #000000 !important;
+}
+
+/* La ligne de scroll du Hero */
+body.light-mode .scroll-line {
+  background: linear-gradient(to bottom, #000000, transparent) !important;
+}
