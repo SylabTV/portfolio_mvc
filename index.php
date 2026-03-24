@@ -7,7 +7,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 // 2. Charge les variables du .env
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+$dotenv->safeLoad();
 
 // 3. Tes anciens require
 require 'config/autoload.php';
