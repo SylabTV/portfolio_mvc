@@ -7,26 +7,20 @@ require_once __DIR__ . '/../models/Project.php';
 // 2. On ajoute l'héritage "extends"
 class ProjectManager extends AbstractManager
 {
-    // --- PLUS BESOIN de private PDO $db; ---
-    // --- PLUS BESOIN de public function __construct() ---
-
     public function findAll(): array
     {
-        // On force le schéma public pour que PostgreSQL trouve la table sur Render/Neon
         $stmt = $this->db->prepare('SELECT * FROM public.projects ORDER BY created_at DESC');
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $projects = [];
         foreach ($results as $row) {
-            // On crée l'objet en passant les clés du tableau $row
-            // Ça évite les erreurs si l'ordre des colonnes change dans la base
             $projects[] = new Project(
                 $row['title'],
                 $row['description'],
                 $row['github_url'],
                 $row['live_url'],
-                $row['media_url'] ?? '', // Le ?? '' évite un crash si media_url est vide
+                $row['media_url'] ?? '',
                 $row['id'],
                 $row['created_at']
             );
@@ -36,7 +30,8 @@ class ProjectManager extends AbstractManager
 
     public function findOne(int $id) : ?Project
     {
-        $stmt = $this->db->prepare('SELECT * FROM projects WHERE id = :id');
+        // AJOUT DE public.
+        $stmt = $this->db->prepare('SELECT * FROM public.projects WHERE id = :id');
         $stmt->execute([':id' => $id]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$row) return null;
@@ -54,8 +49,9 @@ class ProjectManager extends AbstractManager
 
     public function create(Project $project) : void
     {
+        // AJOUT DE public.
         $stmt = $this->db->prepare('
-            INSERT INTO projects (title, description, github_url, live_url, media_url)
+            INSERT INTO public.projects (title, description, github_url, live_url, media_url)
             VALUES (:title, :description, :github_url, :live_url, :media_url)
         ');
         $stmt->execute([
@@ -69,8 +65,9 @@ class ProjectManager extends AbstractManager
 
     public function update(Project $project) : void
     {
+        // AJOUT DE public.
         $stmt = $this->db->prepare('
-            UPDATE projects 
+            UPDATE public.projects 
             SET title = :title, description = :description, 
                 github_url = :github_url, live_url = :live_url,
                 media_url = :media_url
@@ -88,7 +85,8 @@ class ProjectManager extends AbstractManager
 
     public function delete(int $id) : void
     {
-        $stmt = $this->db->prepare('DELETE FROM projects WHERE id = :id');
+        // AJOUT DE public.
+        $stmt = $this->db->prepare('DELETE FROM public.projects WHERE id = :id');
         $stmt->execute([':id' => $id]);
     }
 }
