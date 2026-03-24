@@ -9,6 +9,7 @@ class ProjectManager extends AbstractManager
 {
     public function findAll(): array
     {
+        // On force public.projects pour être raccord avec ta capture Neon
         $stmt = $this->db->prepare('SELECT * FROM public.projects ORDER BY created_at DESC');
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -18,8 +19,8 @@ class ProjectManager extends AbstractManager
             $projects[] = new Project(
                 $row['title'],
                 $row['description'],
-                $row['github_url'],
-                $row['live_url'],
+                $row['github_url'] ?? '',
+                $row['live_url'] ?? '',
                 $row['media_url'] ?? '',
                 $row['id'],
                 $row['created_at']
