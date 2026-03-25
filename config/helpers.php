@@ -1,26 +1,27 @@
 <?php
-function renderMedia(string $mediaUrl, string $alt = '', string $cssClass = ''): void
-{
-    $ext = strtolower(pathinfo($mediaUrl, PATHINFO_EXTENSION));
-    
-    // On conserve le chemin pointant vers le dossier public
-    $src = 'public/img/projects/' . htmlspecialchars($mediaUrl);
+// config/helpers.php
 
-    // Liste des extensions considérées comme des vidéos
-    $videoExtensions = ['webm', 'mp4'];
+if (!function_exists('renderMedia')) {
+    function renderMedia(string $mediaUrl, string $alt = '', string $cssClass = ''): void
+    {
+        $ext = strtolower(pathinfo($mediaUrl, PATHINFO_EXTENSION));
+        
+        // ATTENTION : Vérifie bien que tes images sont dans ce dossier précis
+        $src = 'public/img/projects/' . htmlspecialchars($mediaUrl);
+        
+        $videoExtensions = ['webm', 'mp4'];
 
-    echo '<div class="' . htmlspecialchars($cssClass) . '">';
+        echo '<div class="' . htmlspecialchars($cssClass) . '">';
 
-    if (in_array($ext, $videoExtensions)) {
-        // Pour les vidéos : on utilise l'extension pour le type (video/mp4 ou video/webm)
-        echo '<video autoplay loop muted playsinline style="width:100%; height:auto;">
-                <source src="' . $src . '" type="video/' . $ext . '" />
-                Votre navigateur ne supporte pas la lecture de vidéos.
-              </video>';
-    } else {
-        // Pour les images (jpg, png, webp, etc.)
-        echo '<img src="' . $src . '" alt="' . htmlspecialchars($alt) . '" style="width:100%; height:auto;" />';
+        if (in_array($ext, $videoExtensions)) {
+            // Lecture auto + muet (indispensable) + boucle
+            echo '<video autoplay loop muted playsinline style="width:100%; height:auto; display:block; border-radius:8px;">
+                    <source src="' . $src . '" type="video/' . $ext . '" />
+                  </video>';
+        } else {
+            echo '<img src="' . $src . '" alt="' . htmlspecialchars($alt) . '" style="width:100%; height:auto; display:block; border-radius:8px;" />';
+        }
+
+        echo '</div>';
     }
-
-    echo '</div>';
 }
