@@ -1621,3 +1621,8 @@ body.light-mode .button-voirplus,
 body.light-mode .theme-toggle-track {
   border-color: #000000 !important;
 }
+
+/* La ligne de scroll du Hero */
+body.light-mode .scroll-line {
+  background: linear-gradient(to bottom, #000000, transparent) !important;
+}
