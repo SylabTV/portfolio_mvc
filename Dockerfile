@@ -24,3 +24,6 @@ RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/a
 
 # 7. Droits d'accès
 RUN chown -R www-data:www-data /var/www/html
+
+# 8. Limites PHP pour l'upload de vidéos mp4
+RUN echo "upload_max_filesize = 100M\npost_max_size = 110M\nmemory_limit = 256M\nmax_execution_time = 120" > /usr/local/etc/php/conf.d/uploads.ini

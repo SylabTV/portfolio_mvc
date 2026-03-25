@@ -16,8 +16,8 @@
     </div>
 
     <div class="form-row">
-      <label for="project_file" style="margin-bottom: 10px; display: block;">Fichier média (GIF, WEBM, PNG, JPG)</label>
-      <input type="file" name="project_file" id="project_file" accept=".gif,.webm,.png,.jpg,.jpeg" required />
+      <label for="project_file" style="margin-bottom: 10px; display: block;">Fichier média (GIF, WEBM, MP4, PNG, JPG)</label>
+      <input type="file" name="project_file" id="project_file" accept=".gif,.webm,.mp4,.png,.jpg,.jpeg" required />
     </div>
 
     <button type="submit">

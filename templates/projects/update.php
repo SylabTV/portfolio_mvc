@@ -18,8 +18,8 @@
     </div>
 
     <div class="form-row" style="flex-direction: column; align-items: flex-start;">
-      <label style="margin-bottom: 10px;">Changer le média (laisser vide pour garder l'actuel)</label>
-      <input type="file" name="project_file" id="project_file" accept=".gif,.webm,.png,.jpg,.jpeg" />
+      <label style="margin-bottom: 10px;">Changer le média (laisser vide pour garder l'actuel) (GIF, WEBM, MP4, PNG, JPG)</label>
+      <input type="file" name="project_file" id="project_file" accept=".gif,.webm,.mp4,.png,.jpg,.jpeg" />
       
       <?php if ($project->getMediaUrl()) : ?>
         <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.6;">
